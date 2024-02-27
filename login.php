@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the username and password match
     if ($username == $admin_username && password_verify($password, $admin_password)) {
         // Password is correct, redirect to admin page
-        header("Location: admin.php");
+        header("Location: flag.html");
     } else {
         // Incorrect username or password
         echo "<p>Incorrect username or password</p>";
