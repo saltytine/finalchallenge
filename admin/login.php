@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Incorrect username or password
         echo "<p>Incorrect username or password</p>";
-        header("Location: index.html");
+        header("Location: adminlog.html");
     }
 } else {
     // Redirect to the login page
-    header("Location: index.html");
+    header("Location: adminlog.html");
 }
 ?>
