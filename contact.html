@@ -106,19 +106,26 @@
         </section>
         <section class="contact-form">
             <h2>Contact Us</h2>
-            <form action="questconfirm.html" method="post">
+            <form onsubmit="redirectToConfirmation()">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea>
+
                 <button type="submit">Submit</button>
-             </form>
+            </form>
         </section>
     </main>
     <footer>
         &copy; 2023 S & T Consulting
     </footer>
+    <script>
+        function redirectToConfirmation() {
+            window.location.href = "questconfirm.html"
+    </script>
+    <footer>
+		<p>Copyright © 2023 S & T Consulting</p>
+	</footer>
 </body>
 </html>
