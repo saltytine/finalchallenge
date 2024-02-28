@@ -2,10 +2,16 @@
 <html>
 <head>
 <style>
+html, body {
+  height: 100%;
+}
+
 body {
- margin:0;
- padding:0;
- background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  margin:0;
+  padding:0;
+  background-color: #f0f0f0;
 }
 
 header {
@@ -30,7 +36,7 @@ nav a:hover {
 }
 
 main {
- display: flex;
+ flex: 1;
 }
 
 section {
@@ -47,7 +53,7 @@ footer {
  color: white;
  text-align: center;
  padding: 10px 0;
- margin-top: 10px;
+ margin-top: auto;
 }
 </style>
 </head>
