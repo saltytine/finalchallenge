@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -106,12 +106,12 @@
         </section>
         <section class="contact-form">
             <h2>Contact Us</h2>
-            <form onsubmit="redirectToConfirmation()">
+            <form id="contact-form">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
 
                 <button type="submit">Submit</button>
             </form>
@@ -121,9 +121,16 @@
         &copy; 2023 S & T Consulting
     </footer>
     <script>
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            redirectToConfirmation();
+        });
+
         function redirectToConfirmation() {
             window.location.href = "questconfirm.html";
-	}
+        }
     </script>
 </body>
 </html>
