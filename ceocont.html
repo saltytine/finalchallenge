@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send a Note to the CEO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            background-color: #9cce31;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #7ab829;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send a Note to the CEO</h1>
+    <form action="mailto:ceo@stconsulting.com?subject=Note%20from%20Website&body=" method="write" enctype="text/plain">
+        <input type="hidden" name="action" value="write">
+        <label for="note">Your Note:</label>
+        <textarea id="note" name="body"></textarea>
+        <input type="submit" value="Send Note">
+    </form>
+</body>
+</html>
