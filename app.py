@@ -1,28 +1,33 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, render_template, redirect, url_for
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 
-# define the login endpoint
-@app.route('/login', methods=['POST'])
-def login():
-    # get form data
-    username = request.form['username']
-    password = request.form['password']
+# Define the username and password
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "5201314"
 
-    # validate form data
-    if username == 'admin' and password == '5201314':
-        # authentication succeeded
-        return 'Authentication succeeded'
-    else:
-        # authentication failed
-        return 'Authentication failed'
-
-# define the admin login page
-@app.route('/adminlog')
+@app.route("/adminlog", methods=["GET", "POST"])
 def admin_login():
-    # render the admin login page
-    return render_template('adminlog.html', app=app)
+    if request.method == "POST":
+        # Get the username and password from the form
+        username = request.form["username"]
+        password = request.form["password"]
 
-if __name__ == '__main__':
-    # run the app
-    app.run()
+        # Check if the username and password match
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+            # Password is correct, redirect to flag.html
+            return redirect(url_for("flag"))
+        else:
+            # Incorrect username or password
+            return "<p>Incorrect username or password</p>"
+
+    # Redirect to the login page
+    return render_template("adminlog.html")
+
+@app.route("/flag")
+def flag():
+    # Redirect to the flag page
+    return render_template("flag.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
