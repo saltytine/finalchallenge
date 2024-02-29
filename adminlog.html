@@ -7,13 +7,12 @@
 </head>
 <body>
     <h1>Admin Login</h1>
-    <form method="post" action="login.php">
+    <form method="post" action="{{ url_for('login') }}">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Login">
-        <!-- input from user_pass_hashes.html -->
     </form>
 </body>
 </html>
