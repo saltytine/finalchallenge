@@ -19,15 +19,15 @@ def login():
         password = request.form['password']
 
         if validate_password(username, password):
-            with open('templates/flag.html') as f:
+            with open('flag.html') as f:
                 html = f.read()
                 return html
         else:
-            with open('templates/adminlog1.html') as f:
+            with open('adminlog1.html') as f:
                 html = f.read()
                 return html
     else:
-        with open('templates/adminlog.html') as f:
+        with open('adminlog.html') as f:
             html = f.read()
             return html
 
