@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -19,11 +19,17 @@ def login():
         password = request.form['password']
 
         if validate_password(username, password):
-            return render_template('flag.html')
+            with open('templates/flag.html') as f:
+                html = f.read()
+                return html
         else:
-            return render_template('adminlog1.html')
+            with open('templates/adminlog1.html') as f:
+                html = f.read()
+                return html
     else:
-        return render_template('adminlog.html')
+        with open('templates/adminlog.html') as f:
+            html = f.read()
+            return html
 
 if __name__ == '__main__':
     app.run(debug=True)
