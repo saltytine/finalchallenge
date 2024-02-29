@@ -17,7 +17,7 @@ def login():
 
         # Check if the username and password match
         if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
-            # Password is correct, redirect to flag.html
+            # Password is correct, redirect to flag page
             return redirect(url_for('flag'))
         else:
             # Incorrect username or password
