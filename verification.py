@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import ssl
 
 app = Flask(__name__)
 
@@ -30,4 +31,6 @@ def login():
         return render_template('adminlog.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    context.load_cert_chain('cert.pem', 'key.pem')
+    app.run(debug=True, ssl_context=context)
