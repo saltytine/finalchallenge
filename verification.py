@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -27,9 +27,7 @@ def login():
                 html = f.read()
                 return html
     else:
-        with open('adminlog.html') as f:
-            html = f.read()
-            return html
+        return render_template('adminlog.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
