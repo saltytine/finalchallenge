@@ -1,34 +1,28 @@
-from flask import Flask, render_template, request, redirect, url_for
-import bcrypt
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Define the username and password
-admin_username = "admin"
-admin_password = "5201314".encode('utf-8')
-hashed_password = bcrypt.hashpw(admin_password, bcrypt.gensalt())
-
-@app.route('/adminlog.html')
-def admin_login():
-    return render_template('adminlog.html')
-
+# define the login endpoint
 @app.route('/login', methods=['POST'])
 def login():
-    # Get the username and password from the form
+    # get form data
     username = request.form['username']
-    password = request.form['password'].encode('utf-8')
+    password = request.form['password']
 
-    # Check if the username and password match
-    if username == admin_username and bcrypt.checkpw(password, hashed_password):
-        # Password is correct, redirect to admin page
-        return redirect(url_for('flag'))
+    # validate form data
+    if username == 'admin' and password == '5201314':
+        # authentication succeeded
+        return 'Authentication succeeded'
     else:
-        # Incorrect username or password
-        return "<p>Incorrect username or password</p>" + redirect(url_for('admin_login'))
+        # authentication failed
+        return 'Authentication failed'
 
-@app.route('/flag.html')
-def flag():
-    return render_template('flag.html')
+# define the admin login page
+@app.route('/adminlog')
+def admin_login():
+    # render the admin login page
+    return render_template('adminlog.html', app=app)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # run the app
+    app.run()
